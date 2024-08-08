@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Flight Management</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text">Welcome, <span id="usernameDisplay"></span></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminAirlines.html">Airline Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminFlights.html">Flight Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminReservations.html">Reservation Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminReviews.html">Review Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5 pt-4">
+        <h1 class="mb-4">Flight Management</h1>
+        <div class="card mb-4">
+            <div class="card-header">Add New Flight</div>
+            <div class="card-body">
+                <form id="addFlightForm">
+                    <div class="form-group">
+                        <select id="airlineName" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="departure" class="form-control" placeholder="Departure" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="destination" class="form-control" placeholder="Destination" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="datetime-local" id="departureDateTime" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="datetime-local" id="arrivalDateTime" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="availableSeats" class="form-control" placeholder="Available Seats" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="price" class="form-control" placeholder="Price" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Flight</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">Search Flights</div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <input type="text" id="searchDeparture" class="form-control" placeholder="Search by Departure">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="text" id="searchDestination" class="form-control" placeholder="Search by Destination">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="date" id="searchDate" class="form-control">
+                    </div>
+                </div>
+                <button id="searchFlightBtn" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <table id="flightsTable" class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="airline-column">&emsp;&emsp;Airline&emsp;&emsp;</th>
+                        <th>Departure</th>
+                        <th>Destination</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Available Seats</th>
+                        <th>Occupied Seats</th>
+                        <th>Price</th>
+                        <th>&emsp;&emsp;&emsp;Status&emsp;&emsp;&emsp;</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="adminFlights.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Reservation System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Flight Reservation System</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="airlines.html">Airlines</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" >
+        <h1 class="text-center">Search Flights</h1>
+        <form id="searchForm" class="form-inline justify-content-center">
+            <div class="form-group mb-2">
+                <label for="departure" class="sr-only">Departure:</label>
+                <input type="text" class="form-control" id="departure" name="departure" placeholder="Departure">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="destination" class="sr-only">Destination:</label>
+                <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination">
+            </div>
+            <div class="form-group mb-2">
+                <label for="departureDate" class="sr-only">Departure Date:</label>
+                <input type="date" class="form-control" id="departureDate" name="departureDate">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="arrivalDate" class="sr-only">Arrival Date:</label>
+                <input type="date" class="form-control" id="arrivalDate" name="arrivalDate">
+            </div>
+            <div class="form-group mb-2">
+                <label for="airline" class="sr-only">Airline:</label>
+                <input type="text" class="form-control" id="airline" name="airline" placeholder="Airline">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+
+        <div class="form-group">
+            <label for="sortPrice">Sort by Price:</label>
+            <select id="sortPrice" class="form-control">
+                <option >-</option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-bordered table-striped" id="flightsTable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Airline</th>
+                        <th>Departure</th>
+                        <th>Destination</th>
+                        <th>Departure Date</th>
+                        <th>Arrival Date</th>
+                        <th>Available Seats</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="IndexJS.js"></script>
+</body>
+</html>

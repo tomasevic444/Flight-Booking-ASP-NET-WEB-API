@@ -1,0 +1,92 @@
+﻿body {
+    padding-top: 80px; /* Adjust based on the navbar height */
+}
+
+.navbar .navbar-nav .nav-link {
+    margin-right: 15px;
+}
+
+    .navbar .navbar-nav .nav-link:hover {
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
+
+h1 {
+    margin-bottom: 100px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.table-container {
+    margin-bottom: 20px;
+}
+
+#reviewForm {
+    margin-top: 20px;
+}
+
+.table thead th {
+    text-align: center;
+}
+
+.table tbody td {
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.table th button {
+    background: none;
+    border: none;
+    color: #007bff;
+}
+
+    .table th button:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+.form-row {
+    margin-bottom: 15px;
+}
+
+#reviewForm .form-group {
+    margin-bottom: 15px;
+}
+
+#flightsTable {
+    width: 100%;
+}
+
+    #flightsTable th, #flightsTable td {
+        white-space: nowrap;
+    }
+
+.airlineSelect {
+    width: 100%;
+}
+
+input[type="datetime-local"] {
+    width: 100%;
+}
+
+#flightsTable th.airline-column,
+#flightsTable td.airline-column {
+    width: 300px !important; /* Adjust this value as needed */
+    text-align: center;
+}
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#flightsTable {
+    width: 100%;
+    max-width: 1300px; /* Adjust this value as needed */
+    margin: 0 auto;
+}

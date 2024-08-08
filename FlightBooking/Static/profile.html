@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbarContainer"></div>
+
+    <div class="container">
+        <h1 class="text-center">Edit Profile</h1>
+        <form id="editProfileForm" class="form-horizontal">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" readonly>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" name="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" name="lastName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" class="form-control">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Check if user is authenticated
+            $.ajax({
+                url: '/api/users/isAuthenticated',
+                method: 'GET',
+                success: function (response) {
+                    if (!response.isAuthenticated) {
+                        window.location.href = 'login.html';
+                    } else {
+                        // Insert the appropriate navbar based on user type
+                        if (response.userType === 'Administrator') {
+                            $('#navbarContainer').html(`
+                                    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                                        <a class="navbar-brand" href="#">Airlines Management</a>
+                                        <div class="collapse navbar-collapse">
+                                            <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                                                    <span class="navbar-text">Welcome, <span id="usernameDisplay"></span></span>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="profile.html">Profile</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="adminAirlines.html">Airline Management</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="adminFlights.html">Flight Management</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="adminReservations.html">Reservation Management</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="adminReviews.html">Review Management</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#" id="logout">Log Out</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                `);
+                        } else {
+                            $('#navbarContainer').html(`
+                                    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                                        <span class="navbar-brand mb-0 h1">User Dashboard</span>
+                                        <div class="collapse navbar-collapse">
+                                            <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item"><span class="navbar-text mr-2">Welcome, <span id="usernameDisplay"></span></span></li>
+                                                <li class="nav-item"><a class="nav-link" href="user.html">Home</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="airlines.html">Airlines</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#" id="logout">Log Out</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="reservations.html">My Reservations</a></li>
+                                            </ul>
+                                        </div>
+                                    </nav>
+                                `);
+                        }
+
+
+                        // Load the profile data
+                        $.ajax({
+                            url: `/api/users/profile?username=${response.username}`,
+                            method: 'GET',
+                            success: function (user) {
+                                $('#username').val(user.Username);
+                                $('#firstName').val(user.FirstName);
+                                $('#lastName').val(user.LastName);
+                                $('#email').val(user.Email);
+                                $('#dateOfBirth').val(user.DateOfBirth.split('T')[0]);
+                                $('#gender').val(user.Gender);
+                            },
+                            error: function (xhr, status, error) {
+                                alert('Failed to load profile: ' + xhr.responseText);
+                            }
+                        });
+
+                        // Logout functionality
+                        $('#logout').click(function (event) {
+                            event.preventDefault();
+                            $.ajax({
+                                url: '/api/users/logout',
+                                method: 'POST',
+                                success: function (response) {
+                                    window.location.href = 'login.html';
+                                },
+                                error: function (xhr, status, error) {
+                                    alert('Failed to log out: ' + xhr.responseText);
+                                }
+                            });
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('Failed to authenticate: ' + xhr.responseText);
+                    window.location.href = 'login.html';
+                }
+            });
+
+            $('#editProfileForm').submit(function (event) {
+                event.preventDefault();
+
+                const updatedUser = {
+                    Username: $('#username').val(),
+                    FirstName: $('#firstName').val(),
+                    LastName: $('#lastName').val(),
+                    Email: $('#email').val(),
+                    DateOfBirth: $('#dateOfBirth').val(),
+                    Gender: $('#gender').val()
+                };
+
+                $.ajax({
+                    url: '/api/users/updateProfile',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(updatedUser),
+                    success: function (response) {
+                        alert(response);
+                        window.location.href = 'profile.html';
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Failed to update profile: ' + xhr.responseText);
+                    }
+                });
+            });          
+        });
+    </script>
+</body>
+</html>

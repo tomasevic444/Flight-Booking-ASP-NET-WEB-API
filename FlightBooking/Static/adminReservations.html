@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Reservation Management</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text">Welcome, <span id="usernameDisplay"></span></span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminAirlines.html">Airline Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminFlights.html">Flight Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminReservations.html">Reservation Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="adminReviews.html">Review Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1 class="mb-4">Reservation Management</h1>
+        <div class="card mb-4">
+            <div class="card-header">Reservations</div>
+            <div class="card-body">
+                <table id="reservationsTable" class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Username</th>
+                            <th>Flight</th>
+                            <th>Departure</th>
+                            <th>Destination</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                            <th>Passenger Count</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="adminReservations.js"></script>
+</body>
+</html>

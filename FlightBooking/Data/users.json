@@ -1,0 +1,228 @@
+[
+  {
+    "Username": "admin",
+    "Password": "admin",
+    "FirstName": "Adminkoo",
+    "LastName": "Adminic",
+    "Email": "admin@admin.com",
+    "DateOfBirth": "2001-02-01T00:00:00",
+    "Gender": "Male",
+    "UserType": "Administrator",
+    "Reservations": []
+  },
+  {
+    "Username": "nikola",
+    "Password": "nikola",
+    "FirstName": "Nikola",
+    "LastName": "Tomasevic",
+    "Email": "tomasevic44444@gmail.com",
+    "DateOfBirth": "2002-04-04T00:00:00",
+    "Gender": "Male",
+    "UserType": "RegisteredUser",
+    "Reservations": [
+      {
+        "Id": 1,
+        "User": {
+          "Username": "nikola",
+          "Password": null,
+          "FirstName": null,
+          "LastName": null,
+          "Email": null,
+          "DateOfBirth": "0001-01-01T00:00:00",
+          "Gender": null,
+          "UserType": null,
+          "Reservations": null
+        },
+        "Flight": {
+          "Id": 1,
+          "Airline": "Airline 1",
+          "Departure": "A",
+          "Destination": "B",
+          "DepartureDateTime": "2024-07-17T10:44:00",
+          "ArrivalDateTime": "2024-07-18T10:44:00",
+          "AvailableSeats": 50,
+          "OccupiedSeats": 0,
+          "Price": 60.0,
+          "Status": "ACTIVE"
+        },
+        "PassengerCount": 5,
+        "TotalPrice": 300.0,
+        "Status": "CANCELLED"
+      },
+      {
+        "Id": 2,
+        "User": {
+          "Username": "nikola",
+          "Password": null,
+          "FirstName": null,
+          "LastName": null,
+          "Email": null,
+          "DateOfBirth": "0001-01-01T00:00:00",
+          "Gender": null,
+          "UserType": null,
+          "Reservations": null
+        },
+        "Flight": {
+          "Id": 1,
+          "Airline": "Airline 1",
+          "Departure": "A",
+          "Destination": "B",
+          "DepartureDateTime": "2024-07-17T10:44:00",
+          "ArrivalDateTime": "2024-07-18T10:44:00",
+          "AvailableSeats": 45,
+          "OccupiedSeats": 0,
+          "Price": 60.0,
+          "Status": "ACTIVE"
+        },
+        "PassengerCount": 10,
+        "TotalPrice": 600.0,
+        "Status": "APPROVED"
+      },
+      {
+        "Id": 3,
+        "User": {
+          "Username": "nikola",
+          "Password": null,
+          "FirstName": null,
+          "LastName": null,
+          "Email": null,
+          "DateOfBirth": "0001-01-01T00:00:00",
+          "Gender": null,
+          "UserType": null,
+          "Reservations": null
+        },
+        "Flight": {
+          "Id": 2,
+          "Airline": "Airline 1",
+          "Departure": "Rezervisan",
+          "Destination": "Zavrsen",
+          "DepartureDateTime": "2024-07-18T08:45:00",
+          "ArrivalDateTime": "2024-07-31T08:45:00",
+          "AvailableSeats": 40,
+          "OccupiedSeats": 0,
+          "Price": 66.0,
+          "Status": "FINISHED"
+        },
+        "PassengerCount": 5,
+        "TotalPrice": 330.0,
+        "Status": "FINISHED"
+      },
+      {
+        "Id": 4,
+        "User": {
+          "Username": "nikola",
+          "Password": null,
+          "FirstName": null,
+          "LastName": null,
+          "Email": null,
+          "DateOfBirth": "0001-01-01T00:00:00",
+          "Gender": null,
+          "UserType": null,
+          "Reservations": null
+        },
+        "Flight": {
+          "Id": 4,
+          "Airline": "Airline 1",
+          "Departure": "Rezervisan",
+          "Destination": "Otkazan",
+          "DepartureDateTime": "2024-07-16T06:46:00",
+          "ArrivalDateTime": "2024-07-26T06:46:00",
+          "AvailableSeats": 35,
+          "OccupiedSeats": 0,
+          "Price": 20.0,
+          "Status": "CANCELLED"
+        },
+        "PassengerCount": 5,
+        "TotalPrice": 100.0,
+        "Status": "CANCELLED"
+      },
+      {
+        "Id": 5,
+        "User": {
+          "Username": "nikola",
+          "Password": null,
+          "FirstName": null,
+          "LastName": null,
+          "Email": null,
+          "DateOfBirth": "0001-01-01T00:00:00",
+          "Gender": null,
+          "UserType": null,
+          "Reservations": null
+        },
+        "Flight": {
+          "Id": 3,
+          "Airline": "testtttt",
+          "Departure": "test",
+          "Destination": "test",
+          "DepartureDateTime": "2024-07-01T20:45:00",
+          "ArrivalDateTime": "2024-07-02T00:45:00",
+          "AvailableSeats": 10,
+          "OccupiedSeats": 0,
+          "Price": 100.0,
+          "Status": "ACTIVE"
+        },
+        "PassengerCount": 2,
+        "TotalPrice": 200.0,
+        "Status": "CREATED"
+      },
+      {
+        "Id": 6,
+        "User": {
+          "Username": "nikola",
+          "Password": null,
+          "FirstName": null,
+          "LastName": null,
+          "Email": null,
+          "DateOfBirth": "0001-01-01T00:00:00",
+          "Gender": null,
+          "UserType": null,
+          "Reservations": null
+        },
+        "Flight": {
+          "Id": 5,
+          "Airline": "Airline 2",
+          "Departure": "B",
+          "Destination": "C",
+          "DepartureDateTime": "2024-08-01T10:54:00",
+          "ArrivalDateTime": "2024-08-08T10:54:00",
+          "AvailableSeats": 100,
+          "OccupiedSeats": 0,
+          "Price": 44.0,
+          "Status": "ACTIVE"
+        },
+        "PassengerCount": 10,
+        "TotalPrice": 440.0,
+        "Status": "CREATED"
+      },
+      {
+        "Id": 7,
+        "User": {
+          "Username": "nikola",
+          "Password": null,
+          "FirstName": null,
+          "LastName": null,
+          "Email": null,
+          "DateOfBirth": "0001-01-01T00:00:00",
+          "Gender": null,
+          "UserType": null,
+          "Reservations": null
+        },
+        "Flight": {
+          "Id": 6,
+          "Airline": "Airline 1",
+          "Departure": "Pokusaj",
+          "Destination": "otkazati 24h",
+          "DepartureDateTime": "2024-07-02T02:55:00",
+          "ArrivalDateTime": "2024-07-03T23:56:00",
+          "AvailableSeats": 20,
+          "OccupiedSeats": 0,
+          "Price": 40.0,
+          "Status": "ACTIVE"
+        },
+        "PassengerCount": 5,
+        "TotalPrice": 200.0,
+        "Status": "CREATED"
+      }
+    ]
+  }
+]

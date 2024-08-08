@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Reservations</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <span class="navbar-brand mb-0 h1">Reservation Menagement</span>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><span class="navbar-text mr-2">Welcome, <span id="usernameDisplay"></span></span></li>
+                <li class="nav-item"><a class="nav-link" href="user.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="airlines.html">Airlines</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="logout">Log Out</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">My Reservations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">My Reservations</h1>
+        <div class="form-group">
+            <label for="reservationStatus">Filter by Status:</label>
+            <select id="reservationStatus" class="form-control w-25">
+                <option value="">All</option>
+                <option value="CREATED">Created</option>
+                <option value="APPROVED">Approved</option>
+                <option value="CANCELLED">Cancelled</option>
+                <option value="FINISHED">Finished</option>
+            </select>
+        </div>
+        <table id="reservationsTable" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Flight</th>
+                    <th>Passenger Count</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- Review form -->
+        <div id="reviewForm" style="display:none;">
+            <h3>Write a Review</h3>
+            <div class="form-group">
+                <label for="reviewTitle">Title:</label>
+                <input type="text" id="reviewTitle" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="reviewContent">Content:</label>
+                <textarea id="reviewContent" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="reviewImage">Upload Image:</label>
+                <input type="file" id="reviewImage" class="form-control-file">
+            </div>
+            <button id="submitReview" class="btn btn-primary">Submit Review</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="reservations.js"></script>
+</body>
+</html>

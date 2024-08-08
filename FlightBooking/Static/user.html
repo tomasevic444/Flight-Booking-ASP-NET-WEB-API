@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <span class="navbar-brand mb-0 h1">User Dashboard</span>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><span class="navbar-text mr-2">Welcome, <span id="usernameDisplay"></span></span></li>
+                <li class="nav-item"><a class="nav-link" href="user.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="airlines.html">Airlines</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="logout">Log Out</a></li>
+                <li class="nav-item"><a class="nav-link" href="reservations.html">My Reservations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="mt-4">Search Flights</h2>
+        <form id="searchForm">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="departure">Departure:</label>
+                    <input type="text" class="form-control" id="departure" name="departure">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="destination">Destination:</label>
+                    <input type="text" class="form-control" id="destination" name="destination">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="departureDate">Departure Date:</label>
+                    <input type="date" class="form-control" id="departureDate" name="departureDate">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="arrivalDate">Arrival Date:</label>
+                    <input type="date" class="form-control" id="arrivalDate" name="arrivalDate">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="airline">Airline:</label>
+                    <input type="text" class="form-control" id="airline" name="airline">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <div class="row mt-4">
+            <div class="form-group col-md-3">
+                <label for="sortPrice">Sort by Price:</label>
+                <select id="sortPrice" class="form-control">
+                    <option>-</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="flightStatus">Filter by Status:</label>
+                <select id="flightStatus" class="form-control">
+                    <option value="">All</option>
+                    <option value="ACTIVE">Active</option>
+                    <option value="FINISHED">Finished</option>
+                    <option value="CANCELLED">Canceled</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-bordered table-striped" id="flightsTable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Airline</th>
+                        <th>Departure</th>
+                        <th>Destination</th>
+                        <th>Departure Date</th>
+                        <th>Arrival Date</th>
+                        <th>Available Seats</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Reserve</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="user.js"></script>
+</body>
+</html>
